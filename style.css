@@ -1,0 +1,15 @@
+.svg-component {
+    background-color: black;
+}
+
+body {
+    background-color: black;
+}
+
+.text-label {
+    pointer-events: none;
+}
+
+.node {
+    pointer-events: all;
+}
