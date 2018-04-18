@@ -18,12 +18,12 @@ const nodes = [
 ];
 
 const links = [
-  { target: "games", source: "portfolio" , strength: 0.4 },
-  { target: "software", source: "portfolio" , strength: 0.4 },
-  { target: "research", source: "portfolio" , strength: 0.4 },
-  { target: "research", source: "optimal" , strength: 0.2 },
-  { target: "games", source: "rocket" , strength: 0.2 },
-  { target: "games", source: "evorite" , strength: 0.2 }
+  { target: "games", source: "portfolio" , strength: 0.8 },
+  { target: "software", source: "portfolio" , strength: 0.8 },
+  { target: "research", source: "portfolio" , strength: 0.8 },
+  { target: "research", source: "optimal" , strength: 0.4 },
+  { target: "games", source: "rocket" , strength: 0.4 },
+  { target: "games", source: "evorite" , strength: 0.4 }
 
 ];
 
@@ -33,7 +33,7 @@ const simulation = d3.forceSimulation(nodes)
   .force('link', d3.forceLink(links)
   .id(link => link.id)
   .strength(link => link.strength))
-  .force('attract', d3.forceAttract()
+  .force('attract', attract()
     .target([width / 2, height / 2])
     .strength(function (d) { return 0.08; }));
 
@@ -52,12 +52,12 @@ function getNodeColor(node) {
 }
 
 function getNodeRadius(node) {
-    const radii = [30, 40, 60];
+    const radii = [25, 35, 55];
     return radii[node.level-1];
 }
 
 function getFontSize(node) {
-    const font = [16, 18, 19];
+    const font = [14, 15, 16];
     return font[node.level-1];
 }
 
@@ -89,6 +89,7 @@ const nodeLabels = svg.append('g')
   .enter().append('text')
     .text(node => node.label)
     .attr('font-size', getFontSize)
+    .attr('font-family', "'Trebuchet MS', Helvetica, sans-serif")
     .attr('text-anchor', 'middle')
     .attr('fill', '#030303') 
     .attr('class', 'text-label');
@@ -113,7 +114,7 @@ function mouseOver(node) {
     }
     d3.select(this).transition()
       .duration(100)
-      .attr("r", getNodeRadius(node) * 1.3)
+      .attr("r", getNodeRadius(node) * 1.3);
 }
 
 svg.on('mousemove', function () {
