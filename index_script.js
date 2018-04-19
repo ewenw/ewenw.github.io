@@ -3,8 +3,8 @@
 });
 */
 
-const width = window.innerWidth;
-const height = window.innerHeight;
+const width = window.innerWidth * 0.75;
+const height = window.innerHeight * 0.75;
 
      
 const nodes = [ 
@@ -22,26 +22,27 @@ const nodes = [
 ];
 
 const links = [
-  { target: "games", source: "portfolio" , strength: 0.8 },
-  { target: "games", source: "rocket" , strength: 0.4 },
-  { target: "games", source: "evorite" , strength: 0.4 },
-  { target: "games", source: "swipe" , strength: 0.4 },
-  { target: "software", source: "portfolio" , strength: 0.8 },
-  { target: "software", source: "actions" , strength: 0.4 },
-  { target: "research", source: "portfolio" , strength: 0.8 },
-  { target: "research", source: "optimal" , strength: 0.4 },
-  { target: "optimal", source: "prisoner" , strength: 1 },
+  { target: "games", source: "portfolio" , strength: 1.5 },
+  { target: "games", source: "rocket" , strength: 1 },
+  { target: "games", source: "evorite" , strength: 1 },
+  { target: "games", source: "swipe" , strength: 1 },
+  { target: "software", source: "portfolio" , strength: 1.5 },
+  { target: "software", source: "actions" , strength: 1 },
+  { target: "research", source: "portfolio" , strength: 1.5 },
+  { target: "research", source: "optimal" , strength: 1.2 },
+  { target: "optimal", source: "prisoner" , strength: 1.2 },
 ];
 
 const simulation = d3.forceSimulation(nodes)
-  .force('charge', d3.forceManyBody().strength(-3000)) 
+  .velocityDecay(0.8)
+  .force('charge', d3.forceManyBody().strength(-4000)) 
   .force('center', d3.forceCenter(width / 2, height / 2))
   .force('link', d3.forceLink(links)
   .id(link => link.id)
   .strength(link => link.strength))
   .force('attract', attract()
     .target([width / 2, height / 2])
-    .strength(function (d) { return 0.08; }));
+    .strength(function (d) { return 0.1; }));
 
 const svg = d3.select('svg')
   .attr('width', width)
@@ -58,7 +59,7 @@ function getNodeColor(node) {
 }
 
 function getNodeRadius(node) {
-    const radii = [15, 5, 32, 18];
+    const radii = [10, 5, 24, 18];
     return radii[node.level-1];
 }
 
@@ -101,11 +102,11 @@ const nodeLabels = svg.append('g')
 
 simulation.nodes(nodes).on('tick', () => {
     nodeGraphics
-        .attr("cx", node => node.x)
-        .attr("cy", node => node.y);
+        .attr("cx", function(d) { return d.x = Math.max(20, Math.min(width - 20, d.x)); })
+        .attr("cy", function(d) { return d.y = Math.max(40, Math.min(height - 20, d.y)); })
     nodeLabels
         .attr("x", node => node.x)
-        .attr("y", node => node.y - 40);
+        .attr("y", node => node.y - 30);
     linkGraphics
         .attr('x1', link => link.source.x)
         .attr('y1', link => link.source.y)
@@ -115,8 +116,9 @@ simulation.nodes(nodes).on('tick', () => {
 
 function mouseOver(node) {
     if(node.link !== "") {
+        node.fx = d3.mouse.x;
+        node.fy = d3.mouse.y;
         d3.select(this).style("cursor", "pointer"); 
-    
         d3.select(this).transition()
         .duration(100)
         .attr("r", getNodeRadius(node) * 1.3);
@@ -132,6 +134,7 @@ svg.on('mousemove', function () {
   });
   
 function mouseOut(node) {
+    simulation.restart();
     d3.select(this).transition()
       .duration(200)
       .attr("r", getNodeRadius(node));
