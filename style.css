@@ -13,3 +13,15 @@ body {
 .node {
     pointer-events: all;
 }
+
+.title {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.3em;
+    color: #808080;
+}
+
+.description {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.3em;
+    color: #DDDDDD;
+}
