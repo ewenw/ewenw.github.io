@@ -1,46 +1,46 @@
-const width = window.innerWidth * 0.75;
-const height = window.innerHeight * 0.75;
+const width = window.innerWidth * 0.95;
+const height = window.innerHeight * 0.65;
 
      
 const nodes = [ 
-  { id: "portfolio", link: "", label: "", level: 1 },
+  { id: "portfolio", link: "https://github.com/ewenw/", description: "Projects", label: "", level: 1 },
   { id: "games", link: "", label: "Games", level: 2 },
   { id: "software", link: "", label: "Software", level: 2 },
   { id: "research", link: "", label: "Research", level: 2 },
-  { id: "optimal", link: "https://github.com/ewenw/OptimalDesign", label: "Optimal Design", level: 3, description: "Selecting the best experiments through simulation models and a GP search algorithm"},
-  { id: "rocket", link: "https://play.google.com/store/apps/details?id=com.ween.rocket&hl=en_US", label: "Land the Rocket", level:4 , description: "Experience the thrill of landing a reusable orbital booster on a drone ship in the middle of the ocean."},
-  { id: "evorite", link: "https://play.google.com/store/apps/details?id=com.complex51.evorite", label: "Evorite", level: 4 , description: "Explore the mysteries of the solar system through breathtaking graphics"},
-  { id: "swipe", link: "https://play.google.com/store/apps/details?id=com.weengames.smashballistics", label: "Swipe Ballistics", level: 4 , description: "Master ballistic physics and throw projectiles to get through obstacles"},
+  { id: "optimal", link: "OptimalDesign.pdf", label: "Optimal Design", level: 3, description: "Information theory: selecting the optimal parameters for experiments through simulations and a GP search algorithm"},
+  { id: "rocket", link: "https://play.google.com/store/apps/details?id=com.ween.rocket&hl=en_US", label: "Land the Rocket", level:4 , description: "Try to land a reusable orbital booster on a drone ship in the middle of the ocean. Inspired by SpaceX's Falcon 9"},
+  { id: "evorite", link: "https://play.google.com/store/apps/details?id=com.complex51.evorite", label: "Evorite", level: 4 , description: "Explore the solar system's mysteries through the thrilling adventure of a space probe"},
+  { id: "swipe", link: "https://play.google.com/store/apps/details?id=com.weengames.smashballistics", label: "Swipe Ballistics", level: 4 , description: "Use physics to your advantage. Fire projectiles to get through obstacles and defend yourself"},
   { id: "prisoner", link: "https://github.com/ewenw/prisonersgame", label: "Prisoner's Dilemma", level:3, description: "Prisoner's dilemma implmementation for running live web experiments"},
-  { id: "actions", link: "https://github.com/ewenw/actions", label: "Actions", level: 5, description: "Live macro keyboard and mouse recorder in Java"},
-  { id: "hackdartmouth", link: "https://github.com/ewenw/YelpMyProfessors", label: "YelpMyProfessors", level: 5, description: "Tired of reading reviews? Just paste them in for an overall rating!"},
+  { id: "actions", link: "https://github.com/ewenw/actions", label: "Actions", level: 5, description: "Live macro recording software in Java"},
+  { id: "hackdartmouth", link: "https://github.com/ewenw/YelpMyProfessors", label: "YelpMyProfessors", level: 5, description: "Sentiment analyzer that predicts ratings for comments and reviews"},
   { id: "nodegame", link: "https://nodegame.org", label: "nodeGame", level: 3, description: "Fast, scalable JavaScript for large-scale, online, multiplayer, real-time games and experiments"},
-  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "Hawk-Dove", level: 5, description: "Large-scale experiment for the study of innovation in dynamic networks"}
+  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 5, description: "Behavior science multiplayer web experiment to study the role of innovation in dynamic networks"}
   
 ];
 
+const degreeOne = 1;
+const degreeTwo = 1.2;
+
 const links = [
-  { target: "games", source: "portfolio" , strength: 1.5 },
-  { target: "games", source: "rocket" , strength: 1 },
-  { target: "games", source: "evorite" , strength: 1 },
-  { target: "games", source: "swipe" , strength: 1 },
-  { target: "software", source: "portfolio" , strength: 1.5 },
-  { target: "software", source: "actions" , strength: 1 },
-  { target: "software", source: "hawkdove" , strength: 1.5 },
-  { target: "research", source: "portfolio" , strength: 1.5 },
-  { target: "research", source: "optimal" , strength: 1.2 },
-  { target: "optimal", source: "prisoner" , strength: 1.2 },
-  { target: "nodegame", source: "prisoner" , strength: 1.2 },
-  { target: "nodegame", source: "research" , strength: 1.2 },
-  { target: "hackdartmouth", source: "software" , strength: 1.2 },
-  { target: "evorite", source: "rocket" , strength: 1.2 },
-  { target: "rocket", source: "swipe" , strength: 1.2 },
+  { target: "games", source: "portfolio" , strength: degreeOne },
+  { target: "games", source: "rocket" , strength: degreeTwo },
+  { target: "games", source: "evorite" , strength: degreeTwo },
+  { target: "games", source: "swipe" , strength: degreeTwo },
+  { target: "software", source: "portfolio" , strength: degreeOne },
+  { target: "software", source: "actions" , strength: degreeTwo },
+  { target: "software", source: "hawkdove" , strength: degreeTwo },
+  { target: "research", source: "portfolio" , strength: degreeOne },
+  { target: "research", source: "optimal" , strength: degreeTwo },
+  { target: "research", source: "prisoner" , strength: degreeTwo },
+  { target: "nodegame", source: "research" , strength: degreeTwo },
+  { target: "hackdartmouth", source: "software" , strength: degreeTwo }
   
 ];
 
 const simulation = d3.forceSimulation(nodes)
   .velocityDecay(0.92)
-  .force('charge', d3.forceManyBody().strength(-4000)) 
+  .force('charge', d3.forceManyBody().strength(-2800)) 
   .force('center', d3.forceCenter(width / 2, height / 2))
   .force('link', d3.forceLink(links)
   .id(link => link.id)
@@ -52,14 +52,19 @@ const simulation = d3.forceSimulation(nodes)
 const svg = d3.select('svg')
   .attr('width', width)
   .attr('height', height);
-  
+
+svg.style("opacity", 0.0)
+  .transition()
+  .duration(1500)
+  .style("opacity", 1.0)
+
 function getNodeColor(node) {
-    const levelColors = ["white", "cyan", "purple", "orange", "teal", "green"];
+    const levelColors = ["black", "cyan", "purple", "orange", "teal", "green"];
     return levelColors[node.level-1];
 }
 
 function getNodeRadius(node) {
-    const radii = [10, 5, 24, 18, 20, 15];
+    const radii = [10, 5, 18, 18, 18, 18, 18];
     return radii[node.level-1];
 }
 
@@ -74,7 +79,7 @@ const linkGraphics = svg.append('g')
     .data(links)
     .enter().append("line")
       .attr("stroke-width", 1)
-	  .attr("stroke", "white");
+	  .attr("stroke", "black");
 
 const nodeGraphics = svg.append('g')
     .selectAll('a')
@@ -97,7 +102,7 @@ const nodeLabels = svg.append('g')
     .attr('font-size', getFontSize)
     .attr('font-family', "'Trebuchet MS', Helvetica, sans-serif")
     .attr('text-anchor', 'middle')
-    .attr('fill', '#FFFFFF') 
+    .attr('fill', 'grey') 
     .attr('class', 'text-label');
 
 simulation.nodes(nodes).on('tick', () => {
@@ -121,7 +126,7 @@ function mouseOver(node) {
         d3.select(this).style("cursor", "pointer"); 
         d3.select(this).transition()
         .duration(100)
-        .attr("r", getNodeRadius(node) * 1.3);
+        .attr("r", getNodeRadius(node) * 1.64);
         d3.selectAll(".description").html(node.description);
     }
 }
@@ -136,7 +141,7 @@ svg.on('mousemove', function () {
 function mouseOut(node) {
     simulation.restart();
     d3.select(this).transition()
-      .duration(200)
+      .duration(400)
       .attr("r", getNodeRadius(node));
 }
 

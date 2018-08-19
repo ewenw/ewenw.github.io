@@ -1,9 +1,9 @@
 .svg-component {
-    background-color: black;
+    background-color: white;
 }
 
 body {
-    background-color: black;
+    background-color: white;
 }
 
 .text-label {
@@ -17,11 +17,29 @@ body {
 .title {
     font-family: "Times New Roman", Times, serif;
     font-size: 2.3em;
-    color: #808080;
+    color: #3f3f3f;
 }
 
 .description {
     font-family: "Times New Roman", Times, serif;
-    font-size: 1.3em;
-    color: #DDDDDD;
+    font-size: 1.5em;
+    color: #dfdfdf;
+    background-color: rgb(61, 61, 61);
+}
+
+#coursework {
+    background-color: #ddd;
+    height: auto;
+    margin-top: -30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 19px;
+    line-height: 34px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    text-align: left;
 }
