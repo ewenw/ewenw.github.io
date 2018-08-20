@@ -1,4 +1,4 @@
-const width = window.innerWidth * 0.95;
+const width = window.innerWidth * 0.75;
 const height = window.innerHeight * 0.65;
 
      
