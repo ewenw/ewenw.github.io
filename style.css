@@ -15,7 +15,7 @@ body {
 }
 body { margin:0; }
 .title {
-    font-size: 2.3em;
+    font-size: 1.9em;
     color: #919191;
 }
 *{
@@ -34,7 +34,7 @@ footer {
     background-color: #ddd;
     position: fixed;
     bottom: 0;
-    height: 20%;
+    height: 15%;
     width: 100%
 }
 
