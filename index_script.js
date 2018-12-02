@@ -15,7 +15,8 @@ const nodes = [
   { id: "actions", link: "https://github.com/ewenw/actions", label: "Actions", level: 5, description: "Live macro recording software in Java"},
   { id: "hackdartmouth", link: "https://github.com/ewenw/YelpMyProfessors", label: "YelpMyProfessors", level: 5, description: "Sentiment analyzer that predicts ratings for comments and reviews"},
   { id: "nodegame", link: "https://nodegame.org", label: "nodeGame", level: 3, description: "Fast, scalable JavaScript for large-scale, online, multiplayer, real-time games and experiments"},
-  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 5, description: "Behavior science multiplayer web experiment to study the role of innovation in dynamic networks"}
+  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 5, description: "Behavior science multiplayer web experiment to study the role of innovation in dynamic networks"},
+  { id: "scalacask", link: "https://github.com/ewenw/ScalaCask", label: "ScalaCask", level: 3, description: "Lightweight, high throughput key-value store"}
   
 ];
 
@@ -29,6 +30,7 @@ const links = [
   { target: "games", source: "swipe" , strength: degreeTwo },
   { target: "software", source: "portfolio" , strength: degreeOne },
   { target: "software", source: "actions" , strength: degreeTwo },
+  { target: "software", source: "scalacask" , strength: degreeTwo },
   { target: "software", source: "hawkdove" , strength: degreeTwo },
   { target: "research", source: "portfolio" , strength: degreeOne },
   { target: "research", source: "optimal" , strength: degreeTwo },
