@@ -16,7 +16,7 @@ const nodes = [
   { id: "hackdartmouth", link: "https://github.com/ewenw/YelpMyProfessors", label: "YelpMyProfessors", level: 5, description: "Sentiment analyzer that predicts ratings for comments and reviews"},
   { id: "nodegame", link: "https://nodegame.org", label: "nodeGame", level: 3, description: "Fast, scalable JavaScript for large-scale, online, multiplayer, real-time games and experiments"},
   { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 5, description: "Behavior science multiplayer web experiment to study the role of innovation in dynamic networks"},
-  { id: "scalacask", link: "https://github.com/ewenw/ScalaCask", label: "ScalaCask", level: 3, description: "Lightweight, high throughput key-value store"}
+  { id: "scalacask", link: "https://github.com/ewenw/ScalaCask", label: "ScalaCask", level: 5, description: "Lightweight, high throughput key-value store"}
   
 ];
 
