@@ -1,9 +1,23 @@
-.svg-component {
-    background-color: white;
+
+  
+.name {
+    color: white;
+}
+.introduction-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
-body {
-    background-color: white;
+.section >* {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.svg-component {
+    background-color: black;
+    width: 100%;
+    height: 600px;
 }
 
 .text-label {
@@ -13,34 +27,33 @@ body {
 .node {
     pointer-events: all;
 }
-body { margin:0; }
-.title {
-    font-size: 1.9em;
-    color: #919191;
-}
-*{
-    font-family: "Tahoma", Geneva, sans-serif;
+
+body { 
+    background-color: black;
 }
 
-.description {
-    font-size: 1.3em;
-    color: #dfdfdf;
-    background-color: rgb(61, 61, 61);
-    padding-bottom:0.5em;
-    margin:0;
+.title {
+    font-size: 28px;
+    color: white;
+    margin-left: 80px;
+}
+
+*{ 
+    font-family: "Tahoma", Geneva, sans-serif;
+
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #eeeeee;
 }
 
 footer {
-    background-color: #ddd;
-    position: fixed;
-    bottom: 0;
-    height: 15%;
-    width: 100%
+    margin-top: 50px;
+    color: grey;
+    text-align: center;
 }
 
-#coursework {
-    font-size: 19px;
-}
 .fa {
   padding: 20px;
   font-size: 60px;
@@ -50,4 +63,90 @@ footer {
 
 .fa:hover {
     opacity: 0.7;
+}
+
+.icon {
+    color: black;
+}
+
+.links-container {
+    bottom: 0;
+    right: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+ }
+
+.links__inner {
+    padding: 20px;
+    
+}
+.links__inner:before {
+    top: 0;
+    transform: skewY(1.5deg);
+    transform-origin: 100% 0;
+}
+
+.links__inner:after {
+    bottom: 0;
+    transform-origin: 100%;
+}
+
+.button_sliding_bg {
+    color: #31302B;
+    background: rgb(238, 238, 238);
+    text-transform: uppercase;
+    border-radius: 50px;
+    display: inline-block;
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #31302B 50%, transparent 51%);
+    background-size: 100px 100px; 
+    background-position: -50px -50px; 
+    background-repeat: no-repeat;
+    transition: all ease 0.4s;
+  }
+
+.button_sliding_bg:hover {
+    background-size: 200% 200%; 
+    background-position: 0px 0px; 
+    color: white;
+}
+
+.fa {
+    padding: 0;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+.description-container {
+    width: 25%;
+    text-align:center;
+    height: 100px;
+    margin-left: 550px;
+}
+
+.evorite {
+    text-align: center;
+    padding: 20px;
+}
+
+.dot-dot {
+    margin-top: -15px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    
 }
