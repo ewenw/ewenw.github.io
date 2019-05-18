@@ -15,7 +15,7 @@
 }
 
 .svg-component {
-    background-color: black;
+    background-color: rgb(26, 26, 26);
     width: 100%;
     height: 600px;
 }
@@ -29,11 +29,11 @@
 }
 
 body { 
-    background-color: black;
+    background-color: rgb(26, 26, 26);
 }
 
 .title {
-    font-size: 28px;
+    font-size: 25px;
     color: white;
     margin-left: 80px;
 }
@@ -46,6 +46,13 @@ body {
 .subtitle {
     font-size: 18px;
     color: #eeeeee;
+    text-align: center;
+}
+
+.subtitle--small {
+    font-size: 16px;
+    color: #dadada;
+    text-align: center;
 }
 
 footer {
@@ -134,19 +141,45 @@ footer {
 .description-container {
     width: 25%;
     text-align:center;
-    height: 100px;
+    height: 50px;
     margin-left: 550px;
 }
 
 .evorite {
     text-align: center;
-    padding: 20px;
 }
 
 .dot-dot {
     margin-top: -15px;
     font-size: 30px;
-    color: white;
+    color: rgb(212, 212, 212);
     text-align: center;
     
+}
+
+.experience-container {
+    text-align: center;
+}
+
+.experience {
+    color: rgb(231, 231, 231);
+    text-align: center;
+}
+
+.list-item {
+    color: rgb(182, 179, 179);
+    font-size: 15px;
+}
+
+a {
+    color: lightgrey;
+    text-decoration: none;
+}
+
+
+ul { 
+    display: table; 
+    margin: 0 auto;
+    list-style-type: circle;
+    width: 440px;
 }

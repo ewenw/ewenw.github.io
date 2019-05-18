@@ -14,7 +14,7 @@ const nodes = [
   { id: "actions", link: "https://github.com/ewenw/actions", label: "Actions", level: 3, description: "Live macro recording software in Java"},
   { id: "hackdartmouth", link: "https://github.com/ewenw/YelpMyProfessors", label: "YelpMyProfessors", level: 3, description: "Sentiment analyzer that predicts ratings for comments and reviews"},
   { id: "nodegame", link: "https://nodegame.org", label: "nodeGame", level: 3, description: "JavaScript framework for running real-time behavioral science experiments"},
-  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 3, description: "Behavior science multiplayer experiment to study the role of innovation in dynamic networks"},
+  { id: "hawkdove", link: "https://github.com/ewenw/HawkDove", label: "HawkDove", level: 3, description: "Online experiment to study innovation in dynamic networks"},
   { id: "scalacask", link: "https://github.com/ewenw/ScalaCask", label: "ScalaCask", level: 3, description: "Lightweight, high throughput key-value store based on BitCask"},
   { id: "authorml", link: "https://github.com/ewenw/AuthorML", label: "AuthorML", level: 3, description: "Classifying the classics - authorship identification through machine learning"}
   
